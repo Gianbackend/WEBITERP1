@@ -869,6 +869,29 @@
       e.preventDefault();
       alert('¡Mensaje enviado! Nos contactaremos contigo pronto.');
     }
+
+    let currentSlide = 0;
+const track = document.getElementById('carousel-track');
+const logos = document.querySelectorAll('.client-logo');
+const slideWidth = 220; // 180px + 40px gap
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % logos.length;
+  updateCarousel();
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + logos.length) % logos.length;
+  updateCarousel();
+}
+
+function updateCarousel() {
+  track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+}
+
+// Auto-play cada 3 segundos
+setInterval(nextSlide, 3000);
   </script>
+
 </body>
 </html>
