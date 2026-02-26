@@ -328,6 +328,15 @@
 }
 .client-logo:hover { transform: scale(1.05); }
 .client-logo img { max-width: 100%; max-height: 100%; opacity: 0.7; }
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+#carousel-track:hover {
+  animation-play-state: paused;
+}
   </style>
 </head>
 <body>
@@ -682,19 +691,35 @@
       <p class="section-sub">Empresas líderes que han transformado su negocio con ITERP</p>
     </div>
     
-    <div style="position: relative; margin-top: 56px; overflow: hidden;">
-      <div id="carousel-track" style="display: flex; gap: 40px; transition: transform 0.5s ease;">
-        <!-- Los logos irán aquí -->
-        <div class="client-logo"><img src="https://via.placeholder.com/180x80/1e293b/38bdf8?text=Cliente+1" alt="Cliente 1"></div>
-        <div class="client-logo"><img src="https://via.placeholder.com/180x80/1e293b/38bdf8?text=Cliente+2" alt="Cliente 2"></div>
-        <div class="client-logo"><img src="https://via.placeholder.com/180x80/1e293b/38bdf8?text=Cliente+3" alt="Cliente 3"></div>
-        <div class="client-logo"><img src="https://via.placeholder.com/180x80/1e293b/38bdf8?text=Cliente+4" alt="Cliente 4"></div>
-        <div class="client-logo"><img src="https://via.placeholder.com/180x80/1e293b/38bdf8?text=Cliente+5" alt="Cliente 5"></div>
-        <div class="client-logo"><img src="https://via.placeholder.com/180x80/1e293b/38bdf8?text=Cliente+6" alt="Cliente 6"></div>
+    <div style="position: relative; margin-top: 56px; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);">
+      <div id="carousel-track" style="display: flex; gap: 60px; animation: scroll 25s linear infinite; align-items: center;">
+        
+        <!-- Limana -->
+        <div class="client-logo" style="font-size: 32px; font-weight: 300; color: rgba(255,255,255,0.3); letter-spacing: 8px;">LIMANA</div>
+        
+        <!-- Ajinomoto -->
+        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3); font-style: italic;">AJINOMOTO</div>
+        
+        <!-- Valtx -->
+        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3);">VALTX</div>
+        
+        <!-- Incarail -->
+        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3);">INCARAIL</div>
+        
+        <!-- Frenosa -->
+        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3); font-style: italic;">Frenosa</div>
+        
+        <!-- Crosland -->
+        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3); letter-spacing: 2px;">CROSLAND</div>
+        
+        <!-- DUPLICADO para loop infinito -->
+        <div class="client-logo" style="font-size: 32px; font-weight: 300; color: rgba(255,255,255,0.3); letter-spacing: 8px;">LIMANA</div>
+        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3); font-style: italic;">AJINOMOTO</div>
+        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3);">VALTX</div>
+        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3);">INCARAIL</div>
+        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3); font-style: italic;">Frenosa</div>
+        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3); letter-spacing: 2px;">CROSLAND</div>
       </div>
-      
-      <button onclick="prevSlide()" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.3); color: #38bdf8; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">‹</button>
-      <button onclick="nextSlide()" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.3); color: #38bdf8; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">›</button>
     </div>
   </div>
 </section>
@@ -869,28 +894,6 @@
       e.preventDefault();
       alert('¡Mensaje enviado! Nos contactaremos contigo pronto.');
     }
-
-    let currentSlide = 0;
-const track = document.getElementById('carousel-track');
-const logos = document.querySelectorAll('.client-logo');
-const slideWidth = 220; // 180px + 40px gap
-
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % logos.length;
-  updateCarousel();
-}
-
-function prevSlide() {
-  currentSlide = (currentSlide - 1 + logos.length) % logos.length;
-  updateCarousel();
-}
-
-function updateCarousel() {
-  track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-}
-
-// Auto-play cada 3 segundos
-setInterval(nextSlide, 3000);
   </script>
 
 </body>
