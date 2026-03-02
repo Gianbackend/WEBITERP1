@@ -908,7 +908,7 @@
         submitBtn.textContent = 'Enviando...';
         
         try {
-          const response = await fetch('https://sendcontactemail-orp4zew6aa-uc.a.run.app', {
+          const response = await fetch('/contact', {
   method: 'POST',
   body: JSON.stringify({
     name: document.getElementById('name').value,
