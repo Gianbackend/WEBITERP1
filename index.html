@@ -923,35 +923,49 @@
 });
           
           if (response.ok) {
-            console.log('✅ Mensaje enviado correctamente');
-            alert('¡Mensaje enviado! Nos contactaremos contigo pronto.');
-            submitBtn.textContent = '✓ Mensaje enviado';
-            submitBtn.style.background = '#10b981';
-            this.reset();
-            
-            setTimeout(() => {
-              submitBtn.disabled = false;
-              submitBtn.textContent = originalText;
-              submitBtn.style.background = '';
-            }, 3000);
-          } else {
-            const data = await response.json();
-            console.error('❌ Error de Formspree:', data);
-            throw new Error('Error al enviar');
-          }
-          
-        } catch (error) {
-          console.error('❌ Error completo:', error);
-          alert('Error al enviar el mensaje. Por favor intenta nuevamente.');
-          submitBtn.textContent = '✗ Error al enviar';
-          submitBtn.style.background = '#ef4444';
-          
-          setTimeout(() => {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-            submitBtn.style.background = '';
-          }, 3000);
-        }
+    console.log('✅ Mensaje enviado correctamente');
+    alert('¡Mensaje enviado! Nos contactaremos contigo pronto.');
+    submitBtn.textContent = '✓ Mensaje enviado';
+    submitBtn.style.background = '#10b981';
+    this.reset();
+    
+    setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        submitBtn.style.background = '';
+    }, 3000);
+
+} else if (response.status === 429) {
+    const data = await response.json();
+    console.warn('⚠️ Rate limit alcanzado:', data);
+    alert('Has superado el límite de envíos. Podrás volver a escribirnos en 10 horas.');
+    submitBtn.textContent = '⏳ Límite de envíos alcanzado';
+    submitBtn.style.background = '#f59e0b';
+    
+    setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        submitBtn.style.background = '';
+    }, 5000);
+
+} else {
+    const data = await response.json();
+    console.error('❌ Error de Formspree:', data);
+    throw new Error('Error al enviar');
+}
+
+} catch (error) {
+    console.error('❌ Error completo:', error);
+    alert('Hubo un problema al enviar. Por favor intenta nuevamente.');
+    submitBtn.textContent = '✗ Error al enviar';
+    submitBtn.style.background = '#ef4444';
+    
+    setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        submitBtn.style.background = '';
+    }, 3000);
+}
       });
       
     });
