@@ -13,7 +13,7 @@ export default {
         });
       }
 
-      await env.RATE_LIMIT_KV.put(key, String(count + 1), { expirationTtl: 3600 });
+      await env.RATE_LIMIT_KV.put(key, String(count + 1), { expirationTtl: 36000 });
 
       // Reenvía al Cloud Run
       return fetch('https://sendcontactemail-orp4zew6aa-uc.a.run.app', {
