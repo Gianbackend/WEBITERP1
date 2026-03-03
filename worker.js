@@ -6,14 +6,14 @@ export default {
       const key = `rate:${ip}`;
       const count = parseInt(await env.RATE_LIMIT_KV.get(key) || '0');
 
-      if (count >= 3) {
+      if (count >= 2) {
         return new Response(JSON.stringify({ error: 'Too many requests' }), {
           status: 429,
           headers: { 'Content-Type': 'application/json' }
         });
       }
 
-      await env.RATE_LIMIT_KV.put(key, String(count + 1), { expirationTtl: 36000 });
+      await env.RATE_LIMIT_KV.put(key, String(count + 1), { expirationTtl: 120 });
 
       // Reenvía al Cloud Run
       return fetch('https://sendcontactemail-orp4zew6aa-uc.a.run.app', {

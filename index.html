@@ -938,7 +938,7 @@
 } else if (response.status === 429) {
     const data = await response.json();
     console.warn('⚠️ Rate limit alcanzado:', data);
-    alert('Has superado el límite de envíos. Podrás volver a escribirnos en 10 horas.');
+    alert('Has superado el límite de envíos. Por favor vuelve intentalo mas tarde.');
     submitBtn.textContent = '⏳ Límite de envíos alcanzado';
     submitBtn.style.background = '#f59e0b';
     
