@@ -909,67 +909,144 @@
         
         try {
           const response = await fetch('/contact', {
-  method: 'POST',
-  body: JSON.stringify({
-    name: document.getElementById('name').value,
-    email: document.getElementById('email').value,
-    phone: document.getElementById('phone').value,
-    service: document.getElementById('service').value,
-    message: document.getElementById('message').value,
-  }),
-  headers: {
-    'Content-Type': 'application/json'
-  }
-});
+            method: 'POST',
+            body: JSON.stringify({
+              name: document.getElementById('name').value,
+              email: document.getElementById('email').value,
+              phone: document.getElementById('phone').value,
+              service: document.getElementById('service').value,
+              message: document.getElementById('message').value,
+            }),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
           
           if (response.ok) {
-    console.log('✅ Mensaje enviado correctamente');
-    alert('¡Mensaje enviado! Nos contactaremos contigo pronto.');
-    submitBtn.textContent = '✓ Mensaje enviado';
-    submitBtn.style.background = '#10b981';
-    this.reset();
-    
-    setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-        submitBtn.style.background = '';
-    }, 3000);
+            console.log('✅ Mensaje enviado correctamente');
+            alert('¡Mensaje enviado! Nos contactaremos contigo pronto.');
+            submitBtn.textContent = '✓ Mensaje enviado';
+            submitBtn.style.background = '#10b981';
+            this.reset();
+            
+            setTimeout(() => {
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalText;
+              submitBtn.style.background = '';
+            }, 3000);
 
-} else if (response.status === 429) {
-    const data = await response.json();
-    console.warn('⚠️ Rate limit alcanzado:', data);
-    alert('Has superado el límite de envíos. Por favor vuelve intentalo mas tarde.');
-    submitBtn.textContent = '⏳ Límite de envíos alcanzado';
-    submitBtn.style.background = '#f59e0b';
-    
-    setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-        submitBtn.style.background = '';
-    }, 5000);
+          } else if (response.status === 429) {
+            const data = await response.json();
+            console.warn('⚠️ Rate limit alcanzado:', data);
+            alert('Has superado el límite de envíos. Por favor vuelve intentalo mas tarde.');
+            submitBtn.textContent = '⏳ Límite de envíos alcanzado';
+            submitBtn.style.background = '#f59e0b';
+            
+            setTimeout(() => {
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalText;
+              submitBtn.style.background = '';
+            }, 5000);
 
-} else {
-    const data = await response.json();
-    console.error('❌ Error de Formspree:', data);
-    throw new Error('Error al enviar');
-}
+          } else {
+            const data = await response.json();
+            console.error('❌ Error de Formspree:', data);
+            throw new Error('Error al enviar');
+          }
 
-} catch (error) {
-    console.error('❌ Error completo:', error);
-    alert('Hubo un problema al enviar. Por favor intenta nuevamente.');
-    submitBtn.textContent = '✗ Error al enviar';
-    submitBtn.style.background = '#ef4444';
-    
-    setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-        submitBtn.style.background = '';
-    }, 3000);
-}
+        } catch (error) {
+          console.error('❌ Error completo:', error);
+          alert('Hubo un problema al enviar. Por favor intenta nuevamente.');
+          submitBtn.textContent = '✗ Error al enviar';
+          submitBtn.style.background = '#ef4444';
+          
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            submitBtn.style.background = '';
+          }, 3000);
+        }
       });
-      
     });
+
+    // ── PROTECCIÓN WEB ──
+const _0xpass = 'iterp2025';
+let _unlocked = false;
+
+function _showProtection(onSuccess) {
+  if (_unlocked) { onSuccess(); return; }
+
+  const overlay = document.createElement('div');
+  overlay.id = '_prot_overlay';
+  overlay.style.cssText = `
+    position:fixed;top:0;left:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.85);z-index:999999;
+    display:flex;align-items:center;justify-content:center;
+    font-family:sans-serif;
+  `;
+  overlay.innerHTML = `
+    <div style="background:#0f172a;border:1px solid #38bdf8;border-radius:12px;
+                padding:32px;max-width:360px;width:90%;text-align:center;color:#fff;">
+      <div style="font-size:28px;margin-bottom:8px;">🔒</div>
+      <p style="margin:0 0 4px;font-weight:bold;font-size:16px;">Contenido protegido</p>
+      <p style="margin:0 0 20px;font-size:13px;color:#94a3b8;">por ITERP Consulting</p>
+      <input id="_prot_input" type="password" placeholder="Ingresa la clave..."
+        style="width:100%;padding:10px;border-radius:8px;border:1px solid #38bdf8;
+               background:#1e293b;color:#fff;font-size:14px;box-sizing:border-box;margin-bottom:12px;" />
+      <div id="_prot_error" style="color:#ef4444;font-size:12px;margin-bottom:10px;display:none;">
+        Clave incorrecta ❌
+      </div>
+      <button id="_prot_btn"
+        style="background:#38bdf8;color:#0f172a;border:none;padding:10px 24px;
+               border-radius:8px;font-weight:bold;cursor:pointer;width:100%;">
+        Continuar
+      </button>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+  document.getElementById('_prot_input').focus();
+
+  function _check() {
+    const val = document.getElementById('_prot_input').value;
+    if (val === _0xpass) {
+      _unlocked = true;
+      overlay.remove();
+      onSuccess();
+    } else {
+      document.getElementById('_prot_error').style.display = 'block';
+      document.getElementById('_prot_input').value = '';
+      document.getElementById('_prot_input').focus();
+    }
+  }
+
+  document.getElementById('_prot_btn').addEventListener('click', _check);
+  document.getElementById('_prot_input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') _check();
+  });
+}
+
+document.addEventListener('contextmenu', function(e) {
+  if (_unlocked) return;
+  e.preventDefault();
+  _showProtection(() => {});
+});
+
+document.addEventListener('keydown', function(e) {
+  if (_unlocked) return;
+  const blocked =
+    e.key === 'F12' ||
+    (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) ||
+    (e.ctrlKey && e.key === 'U');
+
+  if (blocked) {
+    e.preventDefault();
+    _showProtection(() => {});
+  }
+});
+
 </script>
+
 
 
 
