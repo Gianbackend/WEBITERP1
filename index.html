@@ -973,8 +973,9 @@
 const _0xpass = 'iterp2025';
 let _unlocked = false;
 
-function _showProtection(onSuccess) {
-  if (_unlocked) { onSuccess(); return; }
+function _showProtection() {
+  if (_unlocked) return;
+  if (document.getElementById('_prot_overlay')) return;
 
   const overlay = document.createElement('div');
   overlay.id = '_prot_overlay';
@@ -1012,7 +1013,6 @@ function _showProtection(onSuccess) {
     if (val === _0xpass) {
       _unlocked = true;
       overlay.remove();
-      onSuccess();
     } else {
       document.getElementById('_prot_error').style.display = 'block';
       document.getElementById('_prot_input').value = '';
@@ -1026,24 +1026,22 @@ function _showProtection(onSuccess) {
   });
 }
 
+// Click derecho → overlay
 document.addEventListener('contextmenu', function(e) {
-  if (_unlocked) return;
   e.preventDefault();
-  _showProtection(() => {});
+  _showProtection();
 });
 
+// F12 y atajos → bloqueados silenciosamente
 document.addEventListener('keydown', function(e) {
-  if (_unlocked) return;
   const blocked =
     e.key === 'F12' ||
     (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) ||
     (e.ctrlKey && e.key === 'U');
 
-  if (blocked) {
-    e.preventDefault();
-    _showProtection(() => {});
-  }
+  if (blocked) e.preventDefault();
 });
+
 
 </script>
 
