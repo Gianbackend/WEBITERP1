@@ -337,6 +337,88 @@
 #carousel-track:hover {
   animation-play-state: paused;
 }
+
+/* ── SERVICES CLEAN ── */
+.services-grid-clean {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+
+
+.sci-icon {
+  width: 48px;
+  height: 48px;
+  background: #eff6ff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.sci-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.service-card-clean h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 8px;
+}
+
+.service-card-clean p {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.sci-list {
+  list-style: disc;
+  padding-left: 18px;
+  margin: 0;
+}
+
+.sci-list li {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.8;
+}
+.service-card-clean {
+  background: #0f172a;
+  border: 1px solid #1e3a5f;
+  border-radius: 12px;
+  padding: 28px 24px;
+}
+.service-card-clean:hover {
+  background: #162032;
+  border-color: #2563eb;
+  box-shadow: 0 4px 24px rgba(37, 99, 235, 0.2);
+}
+.service-card-clean h3 { color: #e2e8f0; }
+.service-card-clean p  { color: #64748b; }
+.sci-list li           { color: #64748b; }
+.sci-icon              { background: rgba(37, 99, 235, 0.15); }
+
+
+@media (max-width: 768px) {
+  .services-grid-clean {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .services-grid-clean {
+    grid-template-columns: 1fr;
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -413,101 +495,74 @@
     </a>
   </section>
   <!-- ── SERVICES ── -->
-  <section id="servicios">
-    <div class="section-inner">
-      <div class="text-center">
-        <p class="section-eyebrow">Lo que hacemos</p>
-        <h2 class="section-title">Servicios de Consultoría</h2>
-        <p class="section-sub">Soluciones integrales para la transformación digital de tu empresa</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card" onmouseenter="hoverCard(this,'#0ea5e9')" onmouseleave="unhoverCard(this)">
-          <div class="service-icon" style="background:rgba(14,165,233,0.12);">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0ea5e9" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0018 0V5"/><path d="M3 12a9 3 0 0018 0"/></svg>
-          </div>
-          <span class="service-tag" style="background:rgba(14,165,233,0.12);color:#0ea5e9;">ERP & SAP</span>
-          <h3>SAP S/4HANA</h3>
-          <p>Implementación, migración y optimización de soluciones SAP HANA. Consultoría S/4HANA, ABAP, Fiori y módulos FI, CO, MM, SD, PP.</p>
-          <ul class="service-items">
-            <li><span class="dot" style="background:#0ea5e9;"></span>S/4HANA Migration</li>
-            <li><span class="dot" style="background:#0ea5e9;"></span>ABAP Development</li>
-            <li><span class="dot" style="background:#0ea5e9;"></span>SAP Fiori / UI5</li>
-            <li><span class="dot" style="background:#0ea5e9;"></span>SAP BTP</li>
-          </ul>
-        </div>
-        <div class="service-card" onmouseenter="hoverCard(this,'#6366f1')" onmouseleave="unhoverCard(this)">
-          <div class="service-icon" style="background:rgba(99,102,241,0.12);">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#6366f1" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-          </div>
-          <span class="service-tag" style="background:rgba(99,102,241,0.12);color:#6366f1;">Frontend</span>
-          <h3>Desarrollo Web</h3>
-          <p>Aplicaciones web modernas y responsivas. Portales corporativos, e-commerce y plataformas digitales de alta performance.</p>
-          <ul class="service-items">
-            <li><span class="dot" style="background:#6366f1;"></span>React / Next.js</li>
-            <li><span class="dot" style="background:#6366f1;"></span>Javascript </li>
-            <li><span class="dot" style="background:#6366f1;"></span>TypeScript</li>
-            <li><span class="dot" style="background:#6366f1;"></span>UI/UX Design</li>
-          </ul>
-        </div>
-        <div class="service-card" onmouseenter="hoverCard(this,'#8b5cf6')" onmouseleave="unhoverCard(this)">
-          <div class="service-icon" style="background:rgba(139,92,246,0.12);">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#8b5cf6" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-          </div>
-          <span class="service-tag" style="background:rgba(139,92,246,0.12);color:#8b5cf6;">Backend</span>
-          <h3>Backend & APIs</h3>
-          <p>Arquitecturas robustas, microservicios y APIs RESTful/GraphQL. Soluciones escalables en la nube con alta disponibilidad.</p>
-          <ul class="service-items">
-            <li><span class="dot" style="background:#8b5cf6;"></span>Node.js</li>
-            <li><span class="dot" style="background:#8b5cf6;"></span>Java / Spring</li>
-            <li><span class="dot" style="background:#8b5cf6;"></span>Microservicios</li>
-            <li><span class="dot" style="background:#8b5cf6;"></span>REST</li>
-          </ul>
-        </div>
-        <div class="service-card" onmouseenter="hoverCard(this,'#06b6d4')" onmouseleave="unhoverCard(this)">
-          <div class="service-icon" style="background:rgba(6,182,212,0.12);">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#06b6d4" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 009 9"/></svg>
-          </div>
-          <span class="service-tag" style="background:rgba(6,182,212,0.12);color:#06b6d4;">Middleware</span>
-          <h3>Integraciones</h3>
-          <p>Conectamos tus sistemas empresariales: SAP, CRM, ERP, plataformas de pago y servicios de terceros mediante middleware.</p>
-          <ul class="service-items">
-            <li><span class="dot" style="background:#06b6d4;"></span>SAP Integration Suite</li>
-            <li><span class="dot" style="background:#06b6d4;"></span>Azure / Cloud</li>
-            <li><span class="dot" style="background:#06b6d4;"></span>EDI & SOAP</li>
-            <li><span class="dot" style="background:#06b6d4;"></span>API Management</li>
-          </ul>
-        </div>
-        <div class="service-card" onmouseenter="hoverCard(this,'#10b981')" onmouseleave="unhoverCard(this)">
-          <div class="service-icon" style="background:rgba(16,185,129,0.12);">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#10b981" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          </div>
-          <span class="service-tag" style="background:rgba(16,185,129,0.12);color:#10b981;">Analytics</span>
-          <h3>Business Intelligence</h3>
-          <p>Transforma tus datos en decisiones estratégicas. Dashboards ejecutivos, reportería avanzada y analítica predictiva.</p>
-          <ul class="service-items">
-            <li><span class="dot" style="background:#10b981;"></span>SAP Analytics Cloud</li>
-            <li><span class="dot" style="background:#10b981;"></span>Power BI</li>
-            <li><span class="dot" style="background:#10b981;"></span>Data Warehouse</li>
-            <li><span class="dot" style="background:#10b981;"></span>Machine Learning</li>
-          </ul>
-        </div>
-        <div class="service-card" onmouseenter="hoverCard(this,'#f59e0b')" onmouseleave="unhoverCard(this)">
-          <div class="service-icon" style="background:rgba(245,158,11,0.12);">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#f59e0b" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <span class="service-tag" style="background:rgba(245,158,11,0.12);color:#f59e0b;">Infrastructure</span>
-          <h3>Seguridad & Cloud</h3>
-          <p>Infraestructura segura y escalable. Migración a la nube, gestión de identidades y cumplimiento normativo empresarial.</p>
-          <ul class="service-items">
-            <li><span class="dot" style="background:#f59e0b;"></span>AWS / Azure / GCP</li>
-            <li><span class="dot" style="background:#f59e0b;"></span>IAM & SSO</li>
-            <li><span class="dot" style="background:#f59e0b;"></span>Disaster Recovery</li>
-            <li><span class="dot" style="background:#f59e0b;"></span>Compliance</li>
-          </ul>
-        </div>
-      </div>
+<section id="servicios">
+  <div class="section-inner">
+    <div class="text-center">
+      <p class="section-eyebrow">Lo que hacemos</p>
+      <h2 class="section-title">Servicios de Consultoría</h2>
+      <p class="section-sub">Soluciones integrales para la transformación digital de tu empresa</p>
     </div>
-  </section>
+    <div class="services-grid-clean">
+
+      <div class="service-card-clean">
+        <div class="sci-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <h3>Consultoría técnica</h3>
+        <p>Servicios remotos de programación ABAP Factory. Outsourcing.</p>
+      </div>
+
+      <div class="service-card-clean">
+        <div class="sci-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Consultoría funcional</h3>
+        <p>En los productos SAP R3, SAP SUITE HANA y S/4 HANA.</p>
+      </div>
+
+      <div class="service-card-clean">
+        <div class="sci-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="1.8"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <h3>Implementación</h3>
+        <p>Proyectos RollOut</p>
+      </div>
+
+      <div class="service-card-clean">
+        <div class="sci-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="1.8"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21H8l1-4h6l1 4z"/></svg>
+        </div>
+        <h3>Facturación</h3>
+        <p>Electrónica</p>
+      </div>
+
+      <div class="service-card-clean">
+        <div class="sci-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M2 9h6M2 15h6"/></svg>
+        </div>
+        <h3>Soluciones</h3>
+        <ul class="sci-list">
+          <li>WEB</li>
+          <li>Portales</li>
+        </ul>
+      </div>
+
+      <div class="service-card-clean">
+        <div class="sci-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="1.8"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </div>
+        <h3>Upgrade</h3>
+        <ul class="sci-list">
+          <li>De SAP R3</li>
+          <li>SUITE HANA</li>
+          <li>S/4 HANA</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
   <!-- ── ABOUT ── -->
   <section id="nosotros">
     <div class="section-inner">
