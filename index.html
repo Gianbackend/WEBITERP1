@@ -17,12 +17,15 @@
       line-height: 1.6;
     }
     /* ── NAVBAR ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      background: rgba(5,13,26,0.92);
-      border-bottom: 1px solid rgba(56,189,248,0.15);
-      backdrop-filter: blur(12px);
-    }
+nav {
+  position: fixed;
+  top: 34px;              /* ← altura del topbar */
+  left: 0; right: 0;
+  z-index: 50;
+  background: rgba(5,13,26,0.92);
+  border-bottom: 1px solid rgba(56,189,248,0.15);
+  backdrop-filter: blur(12px);
+}
     .nav-inner {
       max-width: 1280px; margin: 0 auto; padding: 0 24px;
       display: flex; align-items: center; justify-content: space-between; height: 64px;
@@ -68,6 +71,7 @@
       position: relative; min-height: 100vh;
       display: flex; align-items: center; overflow: hidden;
     }
+    
     .hero-bg {
       position: absolute; inset: 0;
     }
@@ -419,10 +423,88 @@
 }
 
 
+/* ── TOPBAR ── */
+.topbar {
+  position: fixed;        /* ← fixed también */
+  top: 0; left: 0; right: 0;
+  z-index: 51;            /* ← encima del nav */
+  background: #0a1628;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.08);
+  padding: 7px 0;
+  width: 100%;
+}
+
+.topbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+}
+
+.topbar-contacts {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #94a3b8;
+  font-size: 12.5px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.topbar-item:hover {
+  color: #38bdf8;
+}
+
+.topbar-item svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.topbar-divider {
+  color: #334155;
+  font-size: 13px;
+}
+
+/* Ocultar en móvil */
+@media (max-width: 640px) {
+  .topbar {
+    display: none;
+  }
+}
+
   </style>
 </head>
 <body>
+  <!-- ── TOPBAR ── -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-contacts">
+      <a href="tel:+5199-3456-441" class="topbar-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" width="14" height="14">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        (+51) 99-3456-441
+      </a>
+      <span class="topbar-divider">/</span>
+      <a href="mailto:fhuallancam@iterpconsulting.com" class="topbar-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" width="14" height="14">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        fhuallancam@iterpconsulting.com
+      </a>
+    </div>
+  </div>
+</div>
   <!-- ── NAVBAR ── -->
+   
   <nav>
     <div class="nav-inner">
       <a href="#inicio" class="nav-logo">
