@@ -558,17 +558,18 @@ nav {
 .img-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10,20,40,0.95) 60%, rgba(10,20,40,0.3) 100%);
+  background: linear-gradient(to top, rgba(5,10,15,0.97) 60%, rgba(5,10,15,0.25) 100%);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 16px;
-  opacity: 0;
+  opacity: 0 !important;          /* forzamos oculto por defecto */
   transition: opacity 0.35s ease;
+  pointer-events: none;
 }
 
 .img-card:hover .img-card-overlay {
-  opacity: 1;
+  opacity: 1 !important;          /* visible solo en hover */
 }
 
 .img-card-tag {
@@ -594,9 +595,6 @@ nav {
   margin: 0;
 }
 
-.img-card-overlay {
-  pointer-events: none;
-}
 
   </style>
 </head>
@@ -741,8 +739,8 @@ nav {
           <div class="img-card">
             <img src="https://images.pexels.com/photos/7495190/pexels-photo-7495190.jpeg" alt="Misión ITERP" />
             <div class="img-card-overlay">
-              <span class="img-card-tag">Misión</span>
-              <h4>Nuestra Misión</h4>
+              <span class="img-card-tag"></span>
+              <h3>Nuestra Misión</h3>
               <p>Brindar soluciones tecnológicas de alto impacto que optimicen los procesos de negocio, generando valor real y sostenible para cada cliente.</p>
             </div>
           </div>
@@ -750,8 +748,8 @@ nav {
           <div class="img-card">
             <img src="https://images.pexels.com/photos/7653984/pexels-photo-7653984.jpeg" alt="Visión ITERP" />
             <div class="img-card-overlay">
-              <span class="img-card-tag">Visión</span>
-              <h4>Nuestra Visión</h4>
+              <span class="img-card-tag"></span>
+              <h3>Nuestra Visión</h3>
               <p>Ser la firma de consultoría tecnológica de referencia en Latinoamérica, reconocida por excelencia técnica e innovación continua.</p>
             </div>
           </div>
@@ -759,8 +757,8 @@ nav {
           <div class="img-card">
             <img src="https://media.istockphoto.com/id/1461323034/photo/retro-90s-beige-home-pc-computer.jpg?s=2048x2048&w=is&k=20&c=9Jor9eEp9--tRJT46Vv634XmxkO4qY1Ljw1KRjn22SA=" alt="Historia ITERP" />
             <div class="img-card-overlay">
-              <span class="img-card-tag">Historia</span>
-              <h4>Desde 2007</h4>
+              <span class="img-card-tag"></span>
+              <h3>Historia</h3>
               <p>Fundada en 2007, hemos acompañado más de 185 empresas en Perú y Latinoamérica, consolidándonos como un partner SAP estratégico de confianza.</p>
             </div>
           </div>
