@@ -490,6 +490,47 @@ nav {
   width: auto;
 }
 
+/* ── CLIENT CARD ── */
+.client-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 28px 16px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.25);
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.client-card:hover {
+  background: rgba(56, 189, 248, 0.06);
+  border-color: rgba(56, 189, 248, 0.25);
+  color: rgba(255, 255, 255, 0.85);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(56, 189, 248, 0.08);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  #clientes .section-inner > div[style*="grid"] {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #clientes .section-inner > div[style*="grid"] {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #clientes .section-inner > div[style*="grid"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
 
   </style>
 </head>
@@ -831,7 +872,7 @@ Nuestro equipo multidisciplinario de más de 20 profesionales — entre consulto
     </div>
   </section>
 
-<!-- ── CLIENTS CAROUSEL ── -->
+<!-- ── CLIENTS GRID ── -->
 <section id="clientes" style="background: #050d1a; padding: 112px 0;">
   <div class="section-inner">
     <div class="text-center">
@@ -839,39 +880,141 @@ Nuestro equipo multidisciplinario de más de 20 profesionales — entre consulto
       <h2 class="section-title">Confían en nosotros</h2>
       <p class="section-sub">Empresas líderes que han transformado su negocio con ITERP</p>
     </div>
-    
-    <div style="position: relative; margin-top: 56px; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);">
-      <div id="carousel-track" style="display: flex; gap: 60px; animation: scroll 25s linear infinite; align-items: center;">
-        
-        <!-- Limana -->
-        <div class="client-logo" style="font-size: 32px; font-weight: 300; color: rgba(255,255,255,0.3); letter-spacing: 8px;">LIMANA</div>
-        
-        <!-- Ajinomoto -->
-        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3); font-style: italic;">AJINOMOTO</div>
-        
-        <!-- Valtx -->
-        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3);">VALTX</div>
-        
-        <!-- Incarail -->
-        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3);">INCARAIL</div>
-        
-        <!-- Frenosa -->
-        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3); font-style: italic;">Frenosa</div>
-        
-        <!-- Crosland -->
-        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3); letter-spacing: 2px;">CROSLAND</div>
-        
-        <!-- DUPLICADO para loop infinito -->
-        <div class="client-logo" style="font-size: 32px; font-weight: 300; color: rgba(255,255,255,0.3); letter-spacing: 8px;">LIMANA</div>
-        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3); font-style: italic;">AJINOMOTO</div>
-        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3);">VALTX</div>
-        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3);">INCARAIL</div>
-        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3); font-style: italic;">Frenosa</div>
-        <div class="client-logo" style="font-size: 32px; font-weight: 700; color: rgba(255,255,255,0.3); letter-spacing: 2px;">CROSLAND</div>
+
+    <div style="
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 56px;
+    ">
+
+      <!-- 1 Crosland -->
+      <div class="client-card" style="font-family: 'Georgia', serif; font-style: italic; font-size: 18px; letter-spacing: 1px;">Crosland</div>
+
+      <!-- 2 Inca Rail -->
+      <div class="client-card" style="font-family: 'Arial Narrow', Arial, sans-serif; font-weight: 900; font-size: 17px; letter-spacing: 3px;">INCA RAIL</div>
+
+      <!-- 3 El Comercio -->
+      <div class="client-card" style="font-family: 'Times New Roman', serif; font-size: 16px; font-weight: 700; letter-spacing: 1px;">El Comercio</div>
+
+      <!-- 4 EFE -->
+      <div class="client-card" style="font-family: 'Arial Black', sans-serif; font-size: 26px; font-weight: 900; letter-spacing: 6px;">EFE</div>
+
+      <!-- 5 Gloria -->
+      <div class="client-card" style="font-family: 'Trebuchet MS', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: 4px;">GLORIA</div>
+
+      <!-- 6 Innova -->
+      <div class="client-card" style="font-family: 'Century Gothic', 'Futura', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 5px;">INNOVA</div>
+
+      <!-- 7 Quimtia -->
+      <div class="client-card" style="font-family: 'Gill Sans', 'Calibri', sans-serif; font-size: 17px; font-weight: 300; letter-spacing: 4px;">QUIMTIA</div>
+
+      <!-- 8 EsSalud — Es negrita + Salud normal -->
+      <div class="client-card" style="font-family: 'Arial', sans-serif; font-size: 17px; letter-spacing: 1px;">
+        <span style="font-weight: 900;">Es</span><span style="font-weight: 400;">Salud</span>
       </div>
+
+      <!-- 9 Fortuna -->
+      <div class="client-card" style="font-family: 'Palatino Linotype', 'Palatino', serif; font-size: 15px; font-weight: 700; letter-spacing: 3px;">
+        FORTUNA<br>
+        <span style="font-size: 9px; font-weight: 300; letter-spacing: 2px; opacity: 0.5;">SILVER MINES</span>
+      </div>
+
+      <!-- 10 COFIDE -->
+      <div class="client-card" style="font-family: 'Arial Black', sans-serif; font-size: 20px; font-weight: 900; letter-spacing: 3px;">COFIDE</div>
+
+      <!-- 11 Olímpica -->
+      <div class="client-card" style="font-family: 'Georgia', serif; font-style: italic; font-size: 20px; font-weight: 700;">Olímpica</div>
+
+      <!-- 12 Topy Top -->
+      <div class="client-card" style="font-family: 'Arial Narrow', Arial, sans-serif; font-weight: 900; font-size: 14px; letter-spacing: 3px; line-height: 1.3;">TOPY<br>TOP</div>
+
+      <!-- 13 tgestiona — t minúscula + gestiona normal -->
+      <div class="client-card" style="font-family: 'Trebuchet MS', sans-serif; font-size: 16px; letter-spacing: 2px;">
+        <span style="font-weight: 900;">t</span><span style="font-weight: 400;">gestiona</span>
+      </div>
+
+      <!-- 14 InkaFarma — Inka negrita + Farma normal -->
+      <div class="client-card" style="font-family: 'Arial', sans-serif; font-size: 16px; letter-spacing: 1px;">
+        <span style="font-weight: 900;">Inka</span><span style="font-weight: 400;">Farma</span>
+      </div>
+
+      <!-- 15 Hochschild -->
+      <div class="client-card" style="font-family: 'Times New Roman', serif; font-size: 15px; font-weight: 700; letter-spacing: 2px;">HOCHSCHILD</div>
+
+      <!-- 16 Yichang -->
+      <div class="client-card" style="font-family: 'Century Gothic', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 4px;">YICHANG</div>
+
+      <!-- 17 Iberoplast -->
+      <div class="client-card" style="font-family: 'Arial Narrow', Arial, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 2px;">IBEROPLAST</div>
+
+      <!-- 18 evo -->
+      <div class="client-card" style="font-family: 'Arial Black', sans-serif; font-size: 28px; font-weight: 900; letter-spacing: 8px;">evo</div>
+
+      <!-- 19 San Fernando -->
+      <div class="client-card" style="font-family: 'Georgia', serif; font-size: 15px; font-weight: 700; font-style: italic;">
+        San Fernando<br>
+        <span style="font-size: 9px; font-weight: 300; letter-spacing: 1px; opacity: 0.4; font-style: normal;">la buena familia</span>
+      </div>
+
+      <!-- 20 Modasa -->
+      <div class="client-card" style="font-family: 'Arial Black', sans-serif; font-size: 18px; font-weight: 900; letter-spacing: 3px;">MODASA</div>
+
+      <!-- 21 IASACORP -->
+      <div class="client-card" style="font-family: 'Trebuchet MS', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 3px;">
+        IASACORP<br>
+        <span style="font-size: 9px; font-weight: 300; letter-spacing: 2px; opacity: 0.4;">INTERNATIONAL</span>
+      </div>
+
+      <!-- 22 Neoris -->
+      <div class="client-card" style="font-family: 'Century Gothic', 'Futura', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: 4px;">NEORIS</div>
+
+      <!-- 23 Parque Arauco — Parque normal + Arauco negrita -->
+      <div class="client-card" style="font-family: 'Palatino Linotype', serif; font-size: 15px; letter-spacing: 2px;">
+        <span style="font-weight: 400;">Parque</span><span style="font-weight: 900;">Arauco</span>
+      </div>
+
+      <!-- 24 Ajinomoto — AJINO negrita + MOTO normal -->
+      <div class="client-card" style="font-family: 'Arial', sans-serif; font-size: 15px; letter-spacing: 2px;">
+        <span style="font-weight: 900;">AJINO</span><span style="font-weight: 400;">MOTO</span>
+      </div>
+
+      <!-- 25 Centro SAP -->
+      <div class="client-card" style="font-family: 'Georgia', serif; font-size: 15px; font-weight: 700; letter-spacing: 1px;">
+        CENTRO<br>
+        <span style="font-size: 9px; font-weight: 400; letter-spacing: 3px; opacity: 0.4;">GOLD SAP PARTNER</span>
+      </div>
+
+      <!-- 26 Farmex -->
+      <div class="client-card" style="font-family: 'Trebuchet MS', sans-serif; font-size: 19px; font-weight: 700; letter-spacing: 3px; font-style: italic;">FARMEX</div>
+
+      <!-- 27 Minera Raura -->
+      <div class="client-card" style="font-family: 'Arial Narrow', Arial, sans-serif; font-weight: 900; font-size: 14px; letter-spacing: 2px;">MINERA<br>RAURA</div>
+
+      <!-- 28 Limana -->
+      <div class="client-card" style="font-family: 'Gill Sans', 'Calibri', sans-serif; font-size: 18px; font-weight: 300; letter-spacing: 8px;">LIMANA</div>
+
+      <!-- 29 Valtx -->
+      <div class="client-card" style="font-family: 'Arial Black', sans-serif; font-size: 20px; font-weight: 900; letter-spacing: 2px;">VALTX</div>
+
+      <!-- 30 Frenosa -->
+      <div class="client-card" style="font-family: 'Georgia', serif; font-style: italic; font-size: 20px; font-weight: 700;">Frenosa</div>
+
     </div>
+
+    <p style="
+      text-align: center;
+      margin-top: 40px;
+      color: rgba(255,255,255,0.25);
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    ">+30 empresas confían en ITERP Consulting</p>
+
   </div>
 </section>
+
+
 
 
 
