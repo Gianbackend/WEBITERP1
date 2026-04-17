@@ -318,18 +318,8 @@ nav {
     .footer-bottom .links a { font-size: 0.75rem; color: #334155; text-decoration: none; }
 
 
-    .client-logo {
-  flex: 0 0 180px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(15,23,42,0.5);
-  border: 1px solid rgba(56,189,248,0.1);
-  border-radius: 12px;
-  padding: 20px;
-  transition: transform 0.3s;
-}
+    
+
 .client-logo:hover { transform: scale(1.05); }
 .client-logo img { max-width: 100%; max-height: 100%; opacity: 0.7; }
 
@@ -491,32 +481,8 @@ nav {
 }
 
 /* ── CLIENT CARD ── */
-.client-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  padding: 20px 12px;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.35);
-  cursor: default;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 90px;
-  box-sizing: border-box;
-  white-space: nowrap;   /* ← línea nueva */
-  overflow: hidden;      /* ← línea nueva */
-}
 
-.client-card:hover {
-  background: rgba(56, 189, 248, 0.06);
-  border-color: rgba(56, 189, 248, 0.25);
-  color: rgba(255, 255, 255, 0.85);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(56, 189, 248, 0.08);
-}
+
 
 /* ── TABS ── */
 
@@ -594,7 +560,73 @@ nav {
   line-height: 1.5;
   margin: 0;
 }
+/* ── SECCIÓN CLIENTES (ESTILO LIMPIO) ── */
 
+/* 1. Contenedor: Alinea 5 columnas perfectas */
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); 
+  gap: 30px 20px; 
+  margin-top: 60px;
+  width: 100%;
+  max-width: 1150px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+/* 2. Tarjeta: Invisible por defecto, blanca en hover */
+.client-card {
+  width: 100% !important;
+  height: 130px !important; /* ← Aumentamos la altura de 110px a 130px */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background: transparent !important; 
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer !important;
+  padding: 10px !important; /* ← Reducimos el padding para que el logo crezca */
+  border: none !important;
+  border-radius: 12px !important;
+  overflow: visible !important;
+}
+
+/* 3. El Logo: Grande y visible */
+.client-logo {
+  width: auto !important;
+  height: auto !important;
+  max-width: 99% !important;
+  max-height: 130px !important;
+  object-fit: contain !important;
+  
+  /* CAMBIO AQUÍ: Menos brillo, más natural */
+  filter: grayscale(1) invert(0.2) !important; 
+  opacity: 0.5 !important; /* Se verá suave, no agresivo */
+  
+  transition: all 0.4s ease !important;
+}
+
+/* 4. Efecto Hover: Fondo blanco total y logo a color */
+.client-card:hover {
+  background: #ffffff !important; 
+  transform: translateY(-5px) scale(1.02) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+}
+
+.client-card:hover .client-logo {
+  filter: grayscale(0) brightness(1) !important;
+  opacity: 1 !important;
+  transform: scale(1.05) !important;
+}
+
+/* 5. Ajustes para móviles */
+@media (max-width: 992px) { 
+  .client-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } 
+}
+@media (max-width: 600px) { 
+  .client-grid { grid-template-columns: repeat(2, 1fr); }
+  .client-card { height: 90px !important; }
+}
 
   </style>
 </head>
@@ -999,141 +1031,112 @@ nav {
   </section>
 
 <!-- ── CLIENTS GRID ── -->
-<section id="clientes" style="background: #050d1a; padding: 112px 0;">
-  <div class="section-inner">
-    <div class="text-center">
-      <p class="section-eyebrow">Nuestros Clientes</p>
-      <h2 class="section-title">Confían en nosotros</h2>
-      <p class="section-sub">Empresas líderes que han transformado su negocio con ITERP</p>
+ <section id="clientes" style="background: #050d1a; padding: 112px 0;">
+  <div class="section-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    
+    <div class="text-center" style="text-align: center;">
+      <p class="section-eyebrow" style="color: #0ea5e9; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; margin-bottom: 8px;">Nuestros Clientes</p>
+      <h2 class="section-title" style="color: #e6f1ff; font-size: 36px; font-weight: 700;">Confían en nosotros</h2>
+      <p class="section-sub" style="color: #8892b0; max-width: 600px; margin: 16px auto 0;">Empresas líderes que han transformado su negocio con ITERP</p>
     </div>
 
-    <div style="
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 56px;
-  align-items: stretch;
-">
-
-
-      <!-- 1 Crosland -->
-      <div class="client-card" style="font-family: 'Georgia', serif; font-style: italic; font-size: 35px; letter-spacing: 1px;">Crosland</div>
-
-      <!-- 2 Inca Rail -->
-      <div class="client-card" style="font-family: 'Arial Narrow', Arial, sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 3px;">INCARAIL</div>
-
-      <!-- 3 El Comercio -->
-      <div class="client-card" style="font-family: 'Times New Roman', serif; font-size: 34px; font-weight: 700; letter-spacing: 1px;">El Comercio</div>
-
-      <!-- 4 EFE -->
-      <div class="client-card" style="font-family: 'Arial Black', sans-serif; font-size: 42px; font-weight: 900; letter-spacing: 8px;">EFE</div>
-
-      <!-- 5 Gloria -->
-      <div class="client-card" style="font-family: 'Trebuchet MS', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 5px;">GLORIA</div>
-
-      <!-- 6 Innova -->
-      <div class="client-card" style="font-family: 'Century Gothic', 'Futura', sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 6px;">INNOVA</div>
-
-      <!-- 7 Quimtia -->
-      <div class="client-card" style="font-family: 'Gill Sans', 'Calibri', sans-serif; font-size: 30px; font-weight: 300; letter-spacing: 5px;">QUIMTIA</div>
-
-      <!-- 8 EsSalud -->
-<div class="client-card" style="font-family: 'Arial', sans-serif; font-size: 32px; letter-spacing: 1px;">
-  <span style="font-weight: 900; white-space: nowrap;">Es<span style="font-weight: 400;">Salud</span></span>
-</div>
-
-      <!-- 9 Fortuna -->
-      <div class="client-card" style="font-family: 'Palatino Linotype', 'Palatino', serif; font-size: 27px; font-weight: 700; letter-spacing: 3px; line-height: 1.2;">
-        FORTUNA<br>
-        <span style="font-size: 10px; font-weight: 300; letter-spacing: 3px; opacity: 0.45;">SILVER MINES</span>
+    <div class="client-grid">
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/crosland2.png" alt="Crosland" class="client-logo">
       </div>
-
-      <!-- 10 COFIDE -->
-      <div class="client-card" style="font-family: 'Arial Black', sans-serif; font-size: 32px; font-weight: 900; letter-spacing: 4px;">COFIDE</div>
-
-      <!-- 11 Olímpica -->
-      <div class="client-card" style="font-family: 'Georgia', serif; font-style: italic; font-size: 30px; font-weight: 700;">Olímpica</div>
-
-      <!-- 12 Topy Top -->
-      <div class="client-card" style="font-family: 'Arial Narrow', Arial, sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 4px; line-height: 1.1;">TOPY<br>TOP</div>
-
-      <!-- 13 tgestiona -->
-<div class="client-card" style="font-family: 'Trebuchet MS', sans-serif; font-size: 35px; letter-spacing: 1px;">
-  <span style="font-weight: 900; white-space: nowrap;">t<span style="font-weight: 400;">gestiona</span></span>
-</div>
-
-<!-- 14 InkaFarma -->
-<div class="client-card" style="font-family: 'Arial', sans-serif; font-size: 30px; letter-spacing: 1px;">
-  <span style="font-weight: 900; white-space: nowrap;">Inka<span style="font-weight: 400;">Farma</span></span>
-</div>
-
-      <!-- 15 Hochschild -->
-      <div class="client-card" style="font-family: 'Times New Roman', serif; font-size: 24px; font-weight: 700; letter-spacing: 2px;">HOCHSCHILD</div>
-
-      <!-- 16 Yichang -->
-      <div class="client-card" style="font-family: 'Century Gothic', sans-serif; font-size: 28px; font-weight: 700; letter-spacing: 5px;">YICHANG</div>
-
-      <!-- 17 Iberoplast -->
-      <div class="client-card" style="font-family: 'Arial Narrow', Arial, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 2px;">IBEROPLAST</div>
-
-      <!-- 18 evo -->
-      <div class="client-card" style="font-family: 'Arial Black', sans-serif; font-size: 46px; font-weight: 900; letter-spacing: 10px;">evo</div>
-
-      <!-- 19 San Fernando -->
-      <div class="client-card" style="font-family: 'Georgia', serif; font-size: 25px; font-weight: 700; font-style: italic; line-height: 1.2;">
-        San Fernando<br>
-        <span style="font-size: 9px; font-weight: 300; letter-spacing: 2px; opacity: 0.4; font-style: normal;">la buena familia</span>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/incarail1.webp" alt="Cliente 2" class="client-logo">
       </div>
-
-      <!-- 20 Modasa -->
-      <div class="client-card" style="font-family: 'Arial Black', sans-serif; font-size: 30px; font-weight: 900; letter-spacing: 4px;">MODASA</div>
-
-      <!-- 21 IASACORP -->
-      <div class="client-card" style="font-family: 'Trebuchet MS', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 3px; line-height: 1.2;">
-        IASACORP<br>
-        <span style="font-size: 9px; font-weight: 300; letter-spacing: 3px; opacity: 0.4;">INTERNATIONAL</span>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/Ajinomoto4.png" alt="Cliente 3" class="client-logo">
       </div>
-
-      <!-- 22 Neoris -->
-      <div class="client-card" style="font-family: 'Century Gothic', 'Futura', sans-serif; font-size: 32px; font-weight: 700; letter-spacing: 5px;">NEORIS</div>
-
-          <!-- 23 Parque Arauco -->
-      <div class="client-card" style="font-family: 'Palatino Linotype', serif; font-size: 25px; letter-spacing: 1px;">
-        <span style="font-weight: 400; white-space: nowrap;">Parque<span style="font-weight: 900;">Arauco</span></span>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/comercio2.png" alt="Cliente 4" class="client-logo">
       </div>
-
-      <!-- 24 Ajinomoto -->
-      <div class="client-card" style="font-family: 'Arial', sans-serif; font-size: 26px; letter-spacing: 2px;">
-        <span style="font-weight: 900; white-space: nowrap;">AJINO<span style="font-weight: 400;">MOTO</span></span>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/gloria4.png" alt="Cliente 5" class="client-logo">
       </div>
-
-      <!-- 25 Centro SAP -->
-      <div class="client-card" style="font-family: 'Georgia', serif; font-size: 24px; font-weight: 700; letter-spacing: 2px; line-height: 1.2;">
-        CENTRO<br>
-        <span style="font-size: 9px; font-weight: 400; letter-spacing: 3px; opacity: 0.4;">GOLD SAP PARTNER</span>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/hochschild1.png" alt="Cliente 6" class="client-logo">
       </div>
-
-      <!-- 26 Farmex -->
-      <div class="client-card" style="font-family: 'Trebuchet MS', sans-serif; font-size: 30px; font-weight: 700; letter-spacing: 4px; font-style: italic;">FARMEX</div>
-
-      <!-- 27 Minera Raura -->
-      <div class="client-card" style="font-family: 'Arial Narrow', Arial, sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 3px; line-height: 1.1;">MINERA<br>RAURA</div>
-
-      <!-- 28 Limana -->
-      <div class="client-card" style="font-family: 'Gill Sans', 'Calibri', sans-serif; font-size: 28px; font-weight: 300; letter-spacing: 10px;">LIMANA</div>
-
-      <!-- 29 Valtx -->
-      <div class="client-card" style="font-family: 'Arial Black', sans-serif; font-size: 34px; font-weight: 900; letter-spacing: 3px;">VALTX</div>
-
-      <!-- 30 Frenosa -->
-      <div class="client-card" style="font-family: 'Georgia', serif; font-style: italic; font-size: 30px; font-weight: 700;">Frenosa</div>
-
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/frenosa2.png" alt="Cliente 7" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/inkafarma3.png" alt="Cliente 8" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/essalud3.png" alt="Cliente 9" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/sanfernando4.png" alt="Cliente 10" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/valtx1.png" alt="Cliente 11" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/topitop2.png" alt="Cliente 12" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/moli3.png" alt="Cliente 13" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/telefonica1.png" alt="Cliente 14" class="client-logo"> 
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/carsa4.png" alt="Cliente 15" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/pg1.png" alt="Cliente 16" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/carozzi1.png" alt="Cliente 17" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/dinet1.png" alt="Cliente 18" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/raura1.png" alt="Cliente 19" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/tasa2.png" alt="Cliente 20" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/seidor2.png" alt="Cliente 21" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/arauco2.png" alt="Cliente 22" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/tgestiona1.png" alt="Cliente 23" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/ibero1.png" alt="Cliente 24" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/yichang1.png" alt="Cliente 25" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/olimpica1.png" alt="Cliente 26" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/neoris1.png" alt="Cliente 27" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/q1.png" alt="Cliente 28" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/farmex2.png" alt="Cliente 29" class="client-logo">
+      </div>
+      <div class="client-card">
+        <img src="https://assets.nexusti.uk/logos-clientes/efe2.png" alt="Cliente 30" class="client-logo">
+      </div>
     </div>
 
     <p style="
       text-align: center;
-      margin-top: 40px;
-      color: rgba(255,255,255,0.25);
+      margin-top: 64px;
+      color: rgba(255,255,255,0.2);
       font-size: 13px;
       letter-spacing: 3px;
       text-transform: uppercase;
