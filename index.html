@@ -628,6 +628,126 @@ nav {
   .client-card { height: 90px !important; }
 }
 
+/* Contenedor Grid 3 Columnas cambio de servicios*/ 
+
+/* -- SECCIÓN SERVICIOS (ESTILO MODERNO) -- */
+
+/* Contenedor de la sección completa - Fondo oscuro */
+#servicios {
+  background-color: #050d1a !important; /* Asegura el fondo oscuro */
+  color: #e2e8f0 !important;
+}
+
+/* Contenedor Grid - 2 Columnas para dar más aire y contexto */
+.services-grid-detailed {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Columnas más anchas */
+  gap: 50px 40px; /* Más espacio vertical para el contenido */
+  margin-top: 60px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Item Individual de Servicio */
+.service-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  padding: 20px;
+  background: rgba(15,23,42,0.8); /* Fondo de tarjeta sutil */
+  border: 1px solid rgba(56,189,248,0.1); /* Borde sutil */
+  border-radius: 16px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.service-block:hover {
+  transform: translateY(-5px);
+  border-color: #2563eb;
+  box-shadow: 0 4px 24px rgba(37, 99, 235, 0.1);
+}
+
+/* Contenedor Circular del Icono de Imagen */
+.service-icon-circ {
+  flex-shrink: 0;
+  width: 90px;
+  height: 90px;
+  background-color: rgba(255, 255, 255, 0.05); /* Fondo sutil para el círculo */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-icon-circ img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Contenido de Texto */
+.service-info {
+  flex-grow: 1;
+}
+
+.service-info h3 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
+.service-info p {
+  color: #a3b3c3; /* Gris suave */
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+/* Lista Sub-Puntos - Para más contexto */
+.sub-list {
+  list-style-type: none; /* Quitamos los puntos de lista */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sub-list li {
+  font-size: 0.9rem;
+  color: #a3b3c3;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .services-grid-detailed {
+    grid-template-columns: 1fr; /* Una columna en tablets y móviles */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-block {
+    flex-direction: column; /* Columna para el bloque entero en móviles */
+    align-items: center;
+    text-align: center;
+  }
+  
+  .service-icon-circ {
+     margin-bottom: 15px;
+  }
+  
+  .sub-list li {
+     justify-content: center;
+  }
+}
   </style>
 </head>
 <body>
@@ -837,99 +957,125 @@ nav {
   </div>
 </section>
 
-  <!-- ── SERVICES ── -->
-<section id="servicios">
+  <section id="servicios" class="py-20 bg-dark-deep">
   <div class="section-inner">
-    <div class="text-center">
+    <div class="text-center mb-16">
       <p class="section-eyebrow">Lo que hacemos</p>
-      <h2 class="section-title">Servicios de Consultoría</h2>
-      <p class="section-sub">Soluciones integrales para la transformación digital de tu empresa</p>
+      <h2 class="section-title">Servicios de Consultoría SAP</h2>
+      <p class="section-sub">Soluciones integrales para la transformación digital de tu empresa con el respaldo de expertos.</p>
     </div>
-    <div class="services-grid-clean">
 
-      <div class="service-card-clean">
-        <div class="sci-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    <div class="services-grid-detailed">
+      <div class="service-block"> 
+        <div class="service-icon-circ">
+          <img src="https://cdn-icons-png.flaticon.com/512/9905/9905156.png" alt="Funcional">
         </div>
-        <h3>Consultoría técnica</h3>
-        <ul class="sci-list">
-          <li>Programación ABAP Factory</li>
-          <li>Desarrollo de reportes y formularios</li>
-          <li>Outsourcing de recursos técnicos SAP</li>
-          <li>Soporte remoto especializado</li>
-        </ul>
+        <div class="service-info">
+          <h3>Consultoría funcional</h3>
+          <p>Asesoría especializada en los productos de la suite:</p>
+          <ul class="sub-list">
+            <li>SAP R3</li>
+            <li>SAP SUITE HANA</li>
+            <li>SAP S/4 HANA</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="service-card-clean">
-        <div class="sci-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      <div class="service-block">
+        <div class="service-icon-circ">
+          <img src="https://img.icons8.com/fluency/100/source-code.png" alt="Técnica">
         </div>
-        <h3>Consultoría funcional</h3>
-        <ul class="sci-list">
-          <li>SAP R3, SUITE HANA y S/4 HANA</li>
-          <li>Configuración y parametrización de módulos</li>
-          <li>Levantamiento y mapeo de procesos</li>
-          <li>Capacitación a usuarios clave</li>
-        </ul>
+        <div class="service-info">
+          <h3>Consultoría técnica</h3>
+          <p>Servicios remotos de programación ABAP Factory y Outsourcing:</p>
+          <ul class="sub-list">
+            <li>Programación ABAP Factory</li>
+            <li>Desarrollo de reportes y formularios</li>
+            <li>Soporte remoto especializado</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="service-card-clean">
-        <div class="sci-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="1.8"><polygon points="5,3 19,12 5,21"/></svg>
+      <div class="service-block">
+        <div class="service-icon-circ">
+          <img src="https://img.icons8.com/fluency/100/project-management.png" alt="Implementaciones">
         </div>
-        <h3>Implementación</h3>
-        <ul class="sci-list">
-          <li>Proyectos RollOut nacionales e internacionales</li>
-          <li>Gestión de proyecto end-to-end</li>
-          <li>Integración con sistemas existentes</li>
-          <li>Acompañamiento post go-live</li>
-        </ul>
+        <div class="service-info">
+          <h3>Implementaciones y Re-Implementaciones</h3>
+          <p>Proyectos integrales end-to-end con metodología certificada:</p>
+          <ul class="sub-list">
+            <li>Proyectos RollOut nacionales e internacionales</li>
+            <li>Migración de sistemas y datos</li>
+            <li>Integración con sistemas existentes</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="service-card-clean">
-        <div class="sci-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="1.8"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21H8l1-4h6l1 4z"/></svg>
+      <div class="service-block">
+        <div class="service-icon-circ">
+          <img src="https://cdn-icons-png.flaticon.com/512/2906/2906274.png" alt="Upgrade">
         </div>
-        <h3>Facturación</h3>
-        <ul class="sci-list">
-          <li>Facturación electrónica integrada a SAP</li>
-          <li>Cumplimiento normativo local (SUNAT)</li>
-          <li>Emisión de boletas, facturas y notas</li>
-          <li>Integración con módulos FI y SD</li>
-        </ul>
+        <div class="service-info">
+          <h3>Upgrade SAP</h3>
+          <p>Estrategias de actualización y transición tecnológica:</p>
+          <ul class="sub-list">
+            <li>Evaluación del sistema actual</li>
+            <li>Migración de SAP R3 a S/4 HANA</li>
+            <li>Actualización a SAP SUITE HANA</li>
+            <li>Limpieza y migración de datos</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="service-card-clean">
-        <div class="sci-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M2 9h6M2 15h6"/></svg>
+      <div class="service-block">
+        <div class="service-icon-circ">
+          <img src="https://cdn-icons-png.flaticon.com/512/2885/2885417.png" alt="Regionalización">
         </div>
-        <h3>Soluciones digitales</h3>
-        <ul class="sci-list">
-          <li>Desarrollo de sitios web corporativos</li>
-          <li>Aplicaciones móviles y web a medida</li>
-          <li>Portales empresariales y self-service</li>
-          <li>Integración con plataformas SAP</li>
-        </ul>
+        <div class="service-info">
+          <h3>Regionalización y Localización</h3>
+          <p>Cumplimiento normativo y tributario local:</p>
+          <ul class="sub-list">
+            <li>Facturación electrónica integrada SUNAT (Perú)</li>
+            <li>Cumplimiento tributario y contable</li>
+            <li>Localización de módulos (Cobros, pagos, bancos)</li>
+            <li>Libros Electrónicos SUNAT</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="service-card-clean">
-        <div class="sci-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="1.8"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      <div class="service-block">
+        <div class="service-icon-circ">
+          <img src="https://img.icons8.com/?size=100&id=64868&format=png&color=2563EB" alt="Soluciones">
         </div>
-        <h3>Upgrade SAP</h3>
-        <ul class="sci-list">
-          <li>Evaluación del sistema actual</li>
-          <li>Migración de SAP R3 a S/4 HANA</li>
-          <li>Actualización a SAP SUITE HANA</li>
-          
-          <li>Limpieza y migración de datos</li>
-        </ul>
+        <div class="service-info">
+          <h3>Soluciones Digitales</h3>
+          <p>Innovación y desarrollos a medida para potenciar su ecosistema:</p>
+          <ul class="sub-list">
+            <li>Desarrollo WEB, mobile, portales</li>
+            <li>E-commerce y punto de venta</li>
+            <li>Interface SAP con sistemas externos de Clientes, proveedores, Bancos, SUNAT, SBS</li>
+          </ul>
+        </div>
+      </div>
+      
+       <div class="service-block">
+        <div class="service-icon-circ">
+          <img src="https://img.icons8.com/fluency/100/training.png" alt="Capacitación">
+        </div>
+        <div class="service-info">
+          <h3>Capacitación</h3>
+          <p>Transferencia de conocimiento especializado y entrenamiento:</p>
+          <ul class="sub-list">
+            <li>Presencial y online</li>
+            <li>Diversos módulos</li>
+            <li>Entrenamiento a usuarios clave</li>
+          </ul>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
-
 
   
   <!-- ── TECH STACK ── -->
