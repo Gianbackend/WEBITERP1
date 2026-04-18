@@ -522,48 +522,42 @@ nav {
   align-items: center;
 }
 
-/* 2. Tarjeta: Invisible por defecto, blanca en hover */
+/* 2. Tarjeta: Ahora siempre blanca para resaltar los logos */
 .client-card {
   width: 100% !important;
-  height: 130px !important; /* ← Aumentamos la altura de 110px a 130px */
+  height: 130px !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  background: transparent !important; 
+  background: #ffffff !important; /* Fondo blanco permanente */
+  border-radius: 16px !important; /* Bordes redondeados más suaves */
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   cursor: pointer !important;
-  padding: 10px !important; /* ← Reducimos el padding para que el logo crezca */
-  border: none !important;
-  border-radius: 12px !important;
-  overflow: visible !important;
+  padding: 15px !important; 
+  border: 1px solid rgba(0,0,0,0.05) !important; /* Borde sutil para definir la card */
+  overflow: hidden !important;
 }
 
-/* 3. El Logo: Grande y visible */
+/* 3. El Logo: Siempre a color original */
 .client-logo {
   width: auto !important;
   height: auto !important;
-  max-width: 99% !important;
-  max-height: 130px !important;
+  max-width: 110% !important;
+  max-height: 99% !important;
   object-fit: contain !important;
-  
-  /* CAMBIO AQUÍ: Menos brillo, más natural */
-  filter: grayscale(1) invert(0.2) !important; 
-  opacity: 0.5 !important; /* Se verá suave, no agresivo */
-  
-  transition: all 0.4s ease !important;
+  filter: none !important; /* Sin filtros grises ni invert */
+  opacity: 1 !important; 
+  transition: transform 0.4s ease !important;
 }
 
-/* 4. Efecto Hover: Fondo blanco total y logo a color */
+/* 4. Efecto Hover: Solo elevación (Levante) */
 .client-card:hover {
-  background: #ffffff !important; 
-  transform: translateY(-5px) scale(1.02) !important;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+  transform: translateY(-10px) !important; /* El efecto de levante */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important; /* Sombra profunda al elevarse */
 }
 
 .client-card:hover .client-logo {
-  filter: grayscale(0) brightness(1) !important;
-  opacity: 1 !important;
-  transform: scale(1.05) !important;
+  transform: scale(1.05) !important; /* El logo crece ligeramente al elevarse */
 }
 
 /* 5. Ajustes para móviles */
@@ -1039,7 +1033,7 @@ nav {
   <div class="section-inner">
     <div class="text-center mb-16">
       <p class="section-eyebrow">Trayectoria y Propósito</p>
-      <h2 class="section-title">Nuestra Esencia</h2>
+      <h2 class="section-title">Nosotros</h2>
       <p class="section-sub">Más de 19 años transformando el panorama tecnológico empresarial</p>
     </div>
 
