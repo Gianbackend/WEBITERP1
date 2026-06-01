@@ -1,7 +1,11 @@
 {
+  "name": "webiterp-worker",
+  "version": "1.0.0",
   "scripts": {
-    "build": "echo no build needed",
     "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "webiterp1": "file:./build-command"
   },
   "devDependencies": {
     "wrangler": "latest"
