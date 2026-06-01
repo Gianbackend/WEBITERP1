@@ -1,10 +1,7 @@
-name = "webiterp11"
-compatibility_date = "2025-09-27"
+name = "webiterp1"
 main = "worker.js"
+compatibility_date = "2025-01-01"
 
 [assets]
-directory = "."
-
-[[kv_namespaces]]
-binding = "RATE_LIMIT_KV"
-id = "7fa3f64e7c4a42ada8d4a4049c5908ea"
+directory = "./public"
+binding = "ASSETS"
