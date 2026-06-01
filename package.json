@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build": "echo no build needed",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "latest"
+  }
+}
