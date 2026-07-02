@@ -1,4 +1,4 @@
-name = "webiterp1"
+name = "webiterp11"
 main = "worker.js"
 compatibility_date = "2025-01-01"
 
